@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Визуализация чанков и эмбеддингов</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body>
+  <header class="page-header">
+    <h1>Визуализация чанков и эмбеддингов</h1>
+    <p class="subtitle">
+      Слева — один огромный чанк, справа — много маленьких. Посмотри, как меняется качество поиска.
+    </p>
+    <a class="btn-secondary" href="../index.html">← Назад на описание</a>
+  </header>
+
+  <main class="content">
+    <section class="controls">
+      <label for="query-select">Запрос:</label>
+      <select id="query-select">
+        <option value="readiness">Как настроить readiness probe?</option>
+        <option value="rbac">Как настроить RBAC?</option>
+        <option value="network">Как настроить network policy?</option>
+      </select>
+      <button id="run-search">Искать</button>
+    </section>
+
+    <section class="viz-wrapper">
+      <div class="viz-column">
+        <h2>Плохо: один огромный чанк</h2>
+        <div id="bad-chunk" class="chunk-box">
+          150 страниц документации<br/>в одном куске
+        </div>
+        <canvas id="bad-canvas" width="320" height="220"></canvas>
+        <p class="viz-note">
+          Эмбеддинг размытый: запросу трудно «зацепиться» за конкретную тему.
+        </p>
+      </div>
+
+      <div class="viz-column">
+        <h2>Хорошо: много маленьких чанков</h2>
+        <div class="good-chunks">
+          <div class="chunk-box" data-topic="pods">Pods</div>
+          <div class="chunk-box" data-topic="volumes">Volumes</div>
+          <div class="chunk-box" data-topic="readiness">Readiness probes</div>
+          <div class="chunk-box" data-topic="rbac">RBAC</div>
+          <div class="chunk-box" data-topic="network">Network policies</div>
+        </div>
+        <canvas id="good-canvas" width="320" height="220"></canvas>
+        <p class="viz-note">
+          Каждый чанк имеет свой эмбеддинг. Запрос попадает в нужный кластер.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
